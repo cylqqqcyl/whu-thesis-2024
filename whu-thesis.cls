@@ -240,7 +240,7 @@
       }
     \tl_if_eq:NnT \g__whu_option_type_tl { bachelor }
       {
-        \tl_gset:Nn \g__whu_head_odd_tl { \hbox_to_wd:nn { 9 cm }{武汉大学本科毕业论文（设计）} }
+        \tl_gset:Nn \g__whu_head_odd_tl { \hbox_to_wd:nn { 8 cm }{武汉大学本科毕业论文（设计）} }
         \tl_gremove_all:Nn \g__whu_head_odd_tl { \\ }
         \tl_gset:Nn \g__whu_head_even_tl { 武汉大学本科毕业论文（设计）}
       }
@@ -1159,11 +1159,11 @@
       % \par \skip_vertical:n { 6 em }
 
       \par \skip_vertical:n { 2 cm }
-      \includegraphics [ width = 5.5 cm ] { data / whu.pdf }
+      \includegraphics [ width = 5 cm ] { data / whu.pdf }
       \par \skip_vertical:n { 1.5 cm }
-      { \songti \zihao { 2 } \textbf {\c__whu_heading_tl} }
+      { \songti \zihao { 2 } \textbf{\c__whu_heading_tl}} 
       \par \skip_vertical:n { 4 em }
-      \begin { minipage } [ c ] [ 6 cm ] { \textwidth }
+      \begin { minipage } [ c ] [ 4 cm ] { \textwidth }
         \skip_set:Nn \baselineskip { 32 pt }
         \centering { \kaishu \zihao { 1 } \g__whu_info_title_tl }
       \end { minipage }
