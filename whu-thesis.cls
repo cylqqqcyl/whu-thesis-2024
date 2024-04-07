@@ -1183,7 +1183,8 @@
             [ 0.5 em ]
         \end { tabular }
       \group_end:
-      \vfill
+      %\vfill
+      \par \skip_vertical:n { 10 em }
       { \songti \zihao { -2 } \__whu_date_parse:V { \g__whu_info_date_tl } }
     \end { center }
     \__whu_new_chapter_page:
