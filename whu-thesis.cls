@@ -218,7 +218,7 @@
 % 草稿模式下，显示边框
 
 \RequirePackage { fancyhdr }        % 页眉页脚宏包
-\tl_set:Nn \headrulewidth { 0.5pt }  % 页眉线宽
+\tl_set:Nn \headrulewidth { 1pt }  % 页眉线宽
 \tl_set:Nn \footrulewidth { \c_zero_dim }  % 页脚线宽
 
 \AtEndPreamble
@@ -265,7 +265,7 @@
         \fancypagestyle { plain }
           {
             \fancyhf {}
-            \tl_set:Nn \headrulewidth { 1pt }  % 页眉线宽
+            \tl_set:Nn \headrulewidth { 0.5pt }  % 页眉线宽
             \fancyfoot [ C ] { \zihao { 5 } \thepage }
             \fancyhead [ C ] { \zihao { 5 } \g__whu_head_odd_tl }
           }
@@ -346,7 +346,10 @@
 \clist_map_inline:nn { bachelor  }
   {
     \tl_if_eq:NnT \g__whu_option_type_tl {#1}
-      { \tocloftpagestyle { frontmatter } }
+      { 
+      \tocloftpagestyle { frontmatter } 
+      \setlength{\cftbeforechapskip}{0pt}
+      }
   }
 
 \tl_set:Nn \contentsname   { 目 \qquad 录 }
@@ -384,7 +387,7 @@
         \skip_zero:N \cftbeforechapskip
       }
       {
-        \tl_set:Nn \cftchapfont { \heiti \zihao { 4 } }
+        \tl_set:Nn \cftchapfont { \bfseries \songti \zihao { 4 } }
         \tl_set:Nn \cftchappagefont { \zihao { 5 } }
       }
   }
@@ -1161,7 +1164,7 @@
       \par \skip_vertical:n { 2 cm }
       \includegraphics [ width = 5 cm ] { data / whu.pdf }
       \par \skip_vertical:n { 1.5 cm }
-      { \songti \zihao { 2 } \textbf{\c__whu_heading_tl}} 
+      { \songti \zihao { 2 } \textbf {\c__whu_heading_tl} }
       \par \skip_vertical:n { 4 em }
       \begin { minipage } [ c ] [ 4 cm ] { \textwidth }
         \skip_set:Nn \baselineskip { 32 pt }
@@ -1465,10 +1468,10 @@
       {
         \chapter * { 摘 \qquad 要 }
         \phantomsection
-        \clist_map_inline:nn { doctor , master }
+        \clist_map_inline:nn { doctor , master, bachelor }
           {
             \tl_if_eq:NnT \g__whu_option_type_tl {##1}
-              { \addcontentsline { toc } { chapter } { 摘 \qquad 要 } }
+              { \addcontentsline { toc } { chapter } { 摘要 } }
           }
         \tl_if_eq:NnT \g__whu_option_type_tl { bachelor }
           { \thispagestyle { frontmatter } }
@@ -1486,10 +1489,10 @@
       {
         \chapter * { \textbf { ABSTRACT } }
         \phantomsection
-        \clist_map_inline:nn { doctor , master }
+        \clist_map_inline:nn { doctor , master, bachelor }
           {
             \tl_if_eq:NnT \g__whu_option_type_tl {##1}
-              { \addcontentsline { toc } { chapter } { ABSTRACT } }
+              { \addcontentsline { toc } { chapter } { \textbf {ABSTRACT} } }
           }
         \tl_if_eq:NnT \g__whu_option_type_tl { bachelor }
           { \thispagestyle { frontmatter } }
