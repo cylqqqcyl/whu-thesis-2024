@@ -190,15 +190,22 @@
 \RequirePackage { physics }
 \RequirePackage { siunitx }
 
-\RequirePackage { algorithm2e }     % 算法代码
-\tl_set:Nn \algorithmcfname { \bfseries\zihao{5}算法 }
-\newcommand{\algocapfont}{\zihao{5}\songti}
-\SetAlCapFnt{\algocapfont}
-\SetAlCapNameFnt{\algocapfont}
-\box_new:N \l__whu_space_box
-\hbox_set:Nn \l__whu_space_box { \nobreakspace }
-\SetAlgoCaptionSeparator{}
-  % { \hbox_to_wd:nn { 1 em - \box_wd:N \l__whu_space_box } {} }
+\RequirePackage{listings}                    % 代码段
+\usepackage[ruled,linesnumbered,boxed]{algorithm2e}
+\RequirePackage{algorithmic}
+
+% \RequirePackage { algorithm2e }     % 算法代码
+% \RequirePackage { algpseudocode }
+% \RequirePackage { algorithm }
+% \renewcommand{\algorithmicrequire}{\textbf{Input:}}  
+% \renewcommand{\algorithmicensure}{\textbf{Output:}} 
+% \tl_set:Nn \algorithmcfname { 算法 }
+% \SetAlCapSty {}
+% \SetAlCapFnt {}
+% \box_new:N \l__whu_space_box
+% \hbox_set:Nn \l__whu_space_box { \nobreakspace }
+% \SetAlgoCaptionSeparator
+%   { \hbox_to_wd:nn { 1 em - \box_wd:N \l__whu_space_box } {} }
 % 算法标题后会跟一个不间断空格 ~，这里将其宽度减掉
 
 %%% ---- 定义页面样式 ----- %%%
