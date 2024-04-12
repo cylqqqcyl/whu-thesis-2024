@@ -389,7 +389,7 @@
         \skip_zero:N \cftbeforechapskip
       }
       {
-        \tl_set:Nn \cftchapfont { \bfseries \songti \zihao { 4 } }
+        \tl_set:Nn \cftchapfont { \bfseries \songti \zihao { -4 } }
         \tl_set:Nn \cftchappagefont { \zihao { 5 } }
       }
   }
