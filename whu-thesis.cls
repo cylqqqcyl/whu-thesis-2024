@@ -10,6 +10,7 @@
 \RequirePackage{expl3 , xparse , l3keys2e}
 \ProvidesExplClass{whu-thesis}{2021/05/20}{0.6d}
   {Wuhan University Thesis Template}
+  
 
 % 将编译命令限制为 XeLaTeX 和 LuaLaTeX
 \msg_new:nnn { whu-thesis } { EngineNotSupported }
@@ -322,7 +323,7 @@
             format     = { \centering \heiti \zihao { -2 } },
             number     = { \arabic { chapter }             },
             name       = { ,                               },
-            beforeskip = { -20pt                           },
+            beforeskip = { -25pt                           },
             afterskip  = { 0.5 \c__whu_baseline_skip       },
           }  % 各章标题 黑体小 2 号
       }
@@ -396,16 +397,16 @@
 %%% ---- 图表标题 ----- %%%
 \RequirePackage { subcaption }
 % 图表标题设置
-\RequirePackage [ labelsep = space ] { caption } % 序号之后空一格写标题
+\RequirePackage [ labelsep = quad ] { caption } % 序号之后空一格写标题
 % 设置表格标题字体为宋, 设置图标题字体为宋体
-\DeclareCaptionFormat{whu}{{\songti\bfseries#1}#2#3\songti}
-\captionsetup[figure]{format=whu}
-\captionsetup[table]{format=whu}
+% \DeclareCaptionFormat{whu}{{\songti\bfseries#1}#2#3\songti}
+% \captionsetup[figure]{format=whu}
+% \captionsetup[table]{format=whu}
 
 \DeclareCaptionFont { whutablecap  }
-  { \songti \addCJKfontfeatures { BoldFont = * } \bfseries \zihao { 5 } }
+  { \songti \bfseries \zihao { 5 } }
 \DeclareCaptionFont { whufigurecap }
-  { \songti\addCJKfontfeatures { BoldFont = * } \bfseries \zihao { 5} }
+  { \songti \bfseries \zihao { 5} }
 \captionsetup [ table ]
   {
     name = 表,
@@ -556,8 +557,8 @@
 % 中文字体
 \cs_new_protected:Npn \__whu_set_cjk_font_song:nn #1#2
   {
-    \setCJKmainfont {#1} [#2]
-    \newCJKfontfamily { \songti } {#1} [#2]
+    \setCJKmainfont {#1} [AutoFakeBold = 3]
+    \newCJKfontfamily { \songti } {#1} [AutoFakeBold = 3]
   }
 \cs_new_protected:Npn \__whu_set_cjk_font_hei:nn #1#2
   {
@@ -1196,8 +1197,8 @@
         \end { tabular }
       \group_end:
       %\vfill
-      \par \skip_vertical:n { 10 em }
-      { \songti \zihao { -2 } \__whu_date_parse:V { \g__whu_info_date_tl } }
+      \par \skip_vertical:n { 12 em }
+      { \songti \zihao { 4 } \__whu_date_parse:V { \g__whu_info_date_tl } }
     \end { center }
     \__whu_new_chapter_page:
   }
@@ -1490,7 +1491,7 @@
 
         \skip_vertical:N \c__whu_baseline_skip \par
         \__whu_put_keywords:nn
-          { \heiti \zihao { -4 } 关键词：\hbox:n {} }
+          { \songti \bfseries \zihao { -4 } 关键词：\hbox:n {} }
           { \clist_use:Nn \g__whu_info_keywords_clist { ； } }
       }
     % 英文摘要
@@ -1509,7 +1510,7 @@
         \file_input:V \g__whu_element_abstract_en_tl
         \skip_vertical:N \c__whu_baseline_skip \par
         \__whu_put_keywords:nn
-          { \bfseries \zihao { -4 } Key ~ words: ~ }
+          { \bfseries \zihao { -4 } Keywords: ~ }
           { \clist_use:Nn \g__whu_info_keywords_en_clist { ; ~ } }
       }
     \__whu_new_chapter_page:
