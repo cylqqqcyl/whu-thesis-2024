@@ -191,13 +191,14 @@
 \RequirePackage { siunitx }
 
 \RequirePackage { algorithm2e }     % 算法代码
-\tl_set:Nn \algorithmcfname { 算法 }
-\SetAlCapSty {}
-\SetAlCapFnt {}
+\tl_set:Nn \algorithmcfname { \bfseries\zihao{5}算法 }
+\newcommand{\algocapfont}{\zihao{5}\songti}
+\SetAlCapFnt{\algocapfont}
+\SetAlCapNameFnt{\algocapfont}
 \box_new:N \l__whu_space_box
 \hbox_set:Nn \l__whu_space_box { \nobreakspace }
-\SetAlgoCaptionSeparator
-  { \hbox_to_wd:nn { 1 em - \box_wd:N \l__whu_space_box } {} }
+\SetAlgoCaptionSeparator{}
+  % { \hbox_to_wd:nn { 1 em - \box_wd:N \l__whu_space_box } {} }
 % 算法标题后会跟一个不间断空格 ~，这里将其宽度减掉
 
 %%% ---- 定义页面样式 ----- %%%
@@ -395,12 +396,16 @@
 %%% ---- 图表标题 ----- %%%
 \RequirePackage { subcaption }
 % 图表标题设置
-\RequirePackage [ labelsep = quad ] { caption } % 序号之后空一格写标题
-% 设置表格标题字体为黑体, 设置图标题字体为宋体
+\RequirePackage [ labelsep = space ] { caption } % 序号之后空一格写标题
+% 设置表格标题字体为宋, 设置图标题字体为宋体
+\DeclareCaptionFormat{whu}{{\songti\bfseries#1}#2#3\songti}
+\captionsetup[figure]{format=whu}
+\captionsetup[table]{format=whu}
+
 \DeclareCaptionFont { whutablecap  }
-  { \heiti \addCJKfontfeatures { BoldFont = * } \bfseries \zihao { -4 } }
+  { \songti \addCJKfontfeatures { BoldFont = * } \bfseries \zihao { 5 } }
 \DeclareCaptionFont { whufigurecap }
-  { \songti \zihao { -4 } }
+  { \songti\addCJKfontfeatures { BoldFont = * } \bfseries \zihao { 5} }
 \captionsetup [ table ]
   {
     name = 表,
@@ -445,7 +450,11 @@
       { \AtBeginEnvironment {##1} { \zihao { 5 } } }
   }
 % 将表格内容字体设为五号
-
+\cs_new_protected:Npn \__whu_set_figure_font:
+  {
+       \AtBeginEnvironment{figure}{\zihao{5}\songti}
+  }
+% 将图内容字体设为五号
 % 列表样式
 \RequirePackage [ inline ] { enumitem }
 \setlist { nosep }
