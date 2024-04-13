@@ -285,8 +285,8 @@
     subsection     =
       {
         format     = { \heiti \zihao { -4 }      },
-        beforeskip = { 0.5 \c__whu_baseline_skip },
-        afterskip  = { 0.5 \c__whu_baseline_skip },
+        beforeskip = { 0.3 \c__whu_baseline_skip },
+        afterskip  = { 0.1 \c__whu_baseline_skip },
       },  % 二级标题 黑体小 4 号
     subsubsection  =
       {
@@ -785,7 +785,7 @@
 \cs_generate_variant:Nn \__whu_date_parse:n { V }
 
 \tl_if_eq:NnTF \g__whu_option_type_tl { bachelor }
-  { \skip_const:Nn \c__whu_baseline_skip { 23 pt } }
+  { \skip_const:Nn \c__whu_baseline_skip { 22.832 pt } }
   {
     \tl_if_eq:NnTF \g__whu_option_type_tl { opening }
       { \skip_const:Nn \c__whu_baseline_skip { 23 pt } }
@@ -1490,7 +1490,7 @@
 
         \skip_vertical:N \c__whu_baseline_skip \par
         \__whu_put_keywords:nn
-          { \heiti \zihao { -4 } 关键词：\hbox:n {} }
+          { \songti \bfseries \zihao { -4 } 关键词：\hbox:n {} }
           { \clist_use:Nn \g__whu_info_keywords_clist { ； } }
       }
     % 英文摘要
