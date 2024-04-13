@@ -190,7 +190,7 @@
 \RequirePackage { physics }
 \RequirePackage { siunitx }
 
-\RequirePackage { algorithm2e }     % 算法代码
+\usepackage[ruled,linesnumbered,boxed]{algorithm2e}   % 算法代码
 \tl_set:Nn \algorithmcfname { \bfseries\zihao{5}算法 }
 \newcommand{\algocapfont}{\zihao{5}\songti}
 \SetAlCapFnt{\algocapfont}
@@ -322,7 +322,7 @@
             format     = { \centering \heiti \zihao { -2 } },
             number     = { \arabic { chapter }             },
             name       = { ,                               },
-            beforeskip = { -20pt                           },
+            beforeskip = { -25pt       },
             afterskip  = { 0.5 \c__whu_baseline_skip       },
           }  % 各章标题 黑体小 2 号
       }
@@ -388,8 +388,8 @@
         \skip_zero:N \cftbeforechapskip
       }
       {
-        \tl_set:Nn \cftchapfont { \bfseries \songti \zihao { 4 } }
-        \tl_set:Nn \cftchappagefont { \zihao { 5 } }
+        \tl_set:Nn \cftchapfont { \bfseries \songti \zihao { -4 } }
+        \tl_set:Nn \cftchappagefont { \zihao { -4 } }
       }
   }
 
@@ -403,9 +403,9 @@
 \captionsetup[table]{format=whu}
 
 \DeclareCaptionFont { whutablecap  }
-  { \songti \addCJKfontfeatures { BoldFont = * } \bfseries \zihao { 5 } }
+  { \songti \zihao { 5 } }
 \DeclareCaptionFont { whufigurecap }
-  { \songti\addCJKfontfeatures { BoldFont = * } \bfseries \zihao { 5} }
+  { \songti \zihao { 5} }
 \captionsetup [ table ]
   {
     name = 表,
@@ -556,8 +556,8 @@
 % 中文字体
 \cs_new_protected:Npn \__whu_set_cjk_font_song:nn #1#2
   {
-    \setCJKmainfont {#1} [#2]
-    \newCJKfontfamily { \songti } {#1} [#2]
+    \setCJKmainfont {#1}[AutoFakeBold = 3]
+    \newCJKfontfamily { \songti } {#1}[AutoFakeBold = 3]
   }
 \cs_new_protected:Npn \__whu_set_cjk_font_hei:nn #1#2
   {
@@ -1196,8 +1196,8 @@
         \end { tabular }
       \group_end:
       %\vfill
-      \par \skip_vertical:n { 10 em }
-      { \songti \zihao { -2 } \__whu_date_parse:V { \g__whu_info_date_tl } }
+      \par \skip_vertical:n { 12 em }
+      { \songti \zihao { 4 } \__whu_date_parse:V { \g__whu_info_date_tl } }
     \end { center }
     \__whu_new_chapter_page:
   }
@@ -1509,7 +1509,7 @@
         \file_input:V \g__whu_element_abstract_en_tl
         \skip_vertical:N \c__whu_baseline_skip \par
         \__whu_put_keywords:nn
-          { \bfseries \zihao { -4 } Key ~ words: ~ }
+          { \bfseries \zihao { -4 } Keywords: ~ }
           { \clist_use:Nn \g__whu_info_keywords_en_clist { ; ~ } }
       }
     \__whu_new_chapter_page:
