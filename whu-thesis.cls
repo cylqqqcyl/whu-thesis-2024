@@ -366,7 +366,7 @@
     \tl_set:cn { cft #1 font } { \zihao { -4 } }
 
     \tl_if_eq:NnF \g__whu_option_type_tl { doctor }
-      { \tl_set:cn  { cft #1 page font } { \zihao { 5 } } }
+      { \tl_set:cn  { cft #1 page font } { \zihao { -4 } } }
 
     % \dim_set:cn { cft #1 indent } { \parindent }
     \dim_set:cn { cftsecindent } { 1.75em }            % Indentation for sections
