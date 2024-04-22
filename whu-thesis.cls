@@ -398,7 +398,7 @@
 % 图表标题设置
 \RequirePackage [ labelsep = space ] { caption } % 序号之后空一格写标题
 % 设置表格标题字体为宋, 设置图标题字体为宋体
-\DeclareCaptionFormat{whu}{{\songti\bfseries#1}#2#3\songti}
+\DeclareCaptionFormat{whu}{\songti\bfseries#1#2#3}
 \captionsetup[figure]{format=whu}
 \captionsetup[table]{format=whu}
 
