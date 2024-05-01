@@ -1622,7 +1622,7 @@
   {
     \tl_if_empty:NF \g__whu_element_thanks_tl
       {
-        \chapter * { 致谢 }
+        \chapter * { 致 \qquad 谢 }
         \phantomsection
         \addcontentsline { toc } { chapter } { 致谢 }
         \file_input:V \g__whu_element_thanks_tl
